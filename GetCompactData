@@ -1,0 +1,63 @@
+POST http://govhack.abs.gov.au/sdmxws/sdmx.asmx HTTP/1.1
+Accept-Encoding: gzip,deflate
+Content-Type: text/xml;charset=UTF-8
+SOAPAction: "http://stats.oecd.org/OECDStatWS/SDMX/GetCompactData"
+Content-Length: 2052
+Host: stat
+Connection: Keep-Alive
+User-Agent: Apache-HttpClient/4.1.1 (java 1.5)
+
+<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:sdmx="http://stats.oecd.org/OECDStatWS/SDMX/">
+	<soapenv:Header/>
+	<soapenv:Body>
+		<sdmx:GetCompactData>
+			<sdmx:QueryMessage>
+				<message:QueryMessage xmlns="http://www.SDMX.org/resources/SDMXML/schemas/v2_0/query" xmlns:message="http://www.SDMX.org/resources/SDMXML/schemas/v2_0/message" xsi:schemaLocation="http://www.SDMX.org/resources/SDMXML/schemas/v2_0/query http://www.sdmx.org/docs/2_0/SDMXQuery.xsd http://www.SDMX.org/resources/SDMXML/schemas/v2_0/message http://www.sdmx.org/docs/2_0/SDMXMessage.xsd" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+					<Header xmlns="http://www.SDMX.org/resources/SDMXML/schemas/v2_0/message">
+						<ID>none</ID>
+						<Test>false</Test>
+						<Truncated>false</Truncated>
+						<Prepared>2014-04-29T11:36:36</Prepared>
+						<Sender id="YourID">
+							<Name xml:lang="en">Your English Name</Name>
+						</Sender>
+						<Receiver id="ABS">
+							<Name xml:lang="en">Australian Bureau of Statistics</Name>
+						</Receiver>
+					</Header>
+					<Query xmlns="http://www.SDMX.org/resources/SDMXML/schemas/v2_0/message">
+						<DataWhere xmlns="http://www.SDMX.org/resources/SDMXML/schemas/v2_0/query">
+							<And>
+								<DataSet>CPI</DataSet>
+								<Dimension id="INDEX">10001</Dimension>
+								<Dimension id="TSEST">10</Dimension>
+								<Dimension id="FREQUENCY">Q</Dimension>
+								<Attribute id="TIME_FORMAT">P3M</Attribute>
+								<Time>
+									<StartTime>2015-Q1</StartTime>
+									<EndTime>2015-Q1</EndTime>
+								</Time>
+								<Or>
+									<Dimension id="MEASURE">1</Dimension>
+									<Dimension id="MEASURE">2</Dimension>
+									<Dimension id="MEASURE">3</Dimension>
+								</Or>
+								<Or>
+									<Dimension id="REGION">1</Dimension>
+									<Dimension id="REGION">2</Dimension>
+									<Dimension id="REGION">3</Dimension>
+									<Dimension id="REGION">4</Dimension>
+									<Dimension id="REGION">5</Dimension>
+									<Dimension id="REGION">6</Dimension>
+									<Dimension id="REGION">7</Dimension>
+									<Dimension id="REGION">8</Dimension>
+									<Dimension id="REGION">50</Dimension>
+								</Or>
+							</And>
+						</DataWhere>
+					</Query>
+				</message:QueryMessage>
+			</sdmx:QueryMessage>
+		</sdmx:GetCompactData>
+	</soapenv:Body>
+</soapenv:Envelope>
